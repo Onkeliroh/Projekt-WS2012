@@ -1,5 +1,5 @@
-#ifndef daniel_algorithm_hpp_
-#define daniel_algorithm_hpp_
+#ifndef DANIEL_ALGORITHM_HPP_
+#define DANIEL_ALGORITHM_HPP_
 
 #include <mack/core/algorithm.cuh>
 #include <boost/program_options.hpp>
@@ -29,9 +29,6 @@ public:
 	unsigned int get_target_size(size_t length) const;
 
 	__device__ __host__
-	static void init(boost::program_options::variables_map const& options);
-
-	__device__ __host__
 	unsigned char* get_name() const;
 
 	__device__ __host__
@@ -43,5 +40,5 @@ private:
 
 }
 
-#endif /* daniel_algorithm_HPP_ */
+#endif /* DANIEL_ALGORITHM_HPP_*/
 
