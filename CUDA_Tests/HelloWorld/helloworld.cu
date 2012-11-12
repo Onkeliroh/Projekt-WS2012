@@ -1,3 +1,4 @@
+//compile with "nvcc -arch=sm_20 -lcudart"
 #include <stdio.h>
 
 __global__ void kernel( void ){}
@@ -6,6 +7,6 @@ int main(void)
 {
 	kernel<<<1,1>>>();
 
-	printf("Hello World");
+	printf("Hello World\n");
 	return 0;
 }
