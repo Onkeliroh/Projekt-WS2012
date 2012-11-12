@@ -25,8 +25,8 @@ public:
 	__device__ __host__
 	void compute_target(mack::core::canidate key_canidate, unsigned char* reuslt)const;
 
-	__device__ __host__
-	unsigned int get_target_size(size_t length) const;
+//	__device__ __host__
+//	unsigned int get_target_size(size_t length) const;
 
 	__device__ __host__
 	unsigned char* get_name() const;
