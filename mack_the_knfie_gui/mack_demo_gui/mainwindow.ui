@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>588</width>
+    <height>483</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Mack the Knife - Hochschulinformationstag Demonstration</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="ress.qrc">
+    <normaloff>:/cracker.png</normaloff>:/cracker.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>570</width>
+        <height>13</height>
+       </size>
+      </property>
+      <property name="tabPosition">
+       <enum>QTabWidget::North</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="create_tab">
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <attribute name="title">
+        <string>1. Benutzerkonto anlegen</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLineEdit" name="userEdit">
+            <property name="placeholderText">
+             <string>Benutzername</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="passwordEdit">
+            <property name="accessibleName">
+             <string extracomment="Password"/>
+            </property>
+            <property name="accessibleDescription">
+             <string extracomment="Password"/>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="inputMethodHints">
+             <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText</set>
+            </property>
+            <property name="maxLength">
+             <number>6</number>
+            </property>
+            <property name="echoMode">
+             <enum>QLineEdit::Password</enum>
+            </property>
+            <property name="placeholderText">
+             <string notr="true" extracomment="Password">Passwort</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="passwordEdit2">
+            <property name="accessibleName">
+             <string extracomment="Password"/>
+            </property>
+            <property name="accessibleDescription">
+             <string extracomment="Password"/>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="inputMethodHints">
+             <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText</set>
+            </property>
+            <property name="maxLength">
+             <number>6</number>
+            </property>
+            <property name="echoMode">
+             <enum>QLineEdit::Password</enum>
+            </property>
+            <property name="placeholderText">
+             <string notr="true" extracomment="Password">Passwort wiederholen</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="createUserBtn">
+            <property name="focusPolicy">
+             <enum>Qt::ClickFocus</enum>
+            </property>
+            <property name="text">
+             <string>Benutzer Erstellen</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextEdit" name="debug_edit">
+            <property name="undoRedoEnabled">
+             <bool>false</bool>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QTableWidget" name="userTable">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="autoFillBackground">
+             <bool>true</bool>
+            </property>
+            <attribute name="horizontalHeaderStretchLastSection">
+             <bool>true</bool>
+            </attribute>
+            <column>
+             <property name="text">
+              <string>User</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Passwort</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="searchEdit">
+            <property name="placeholderText">
+             <string>Hashsuche</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="login_tab">
+       <attribute name="title">
+        <string>2. Login</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QLineEdit" name="userLoginEdit">
+            <property name="placeholderText">
+             <string>Benutzername</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="userPasswordEdit">
+            <property name="maxLength">
+             <number>6</number>
+            </property>
+            <property name="echoMode">
+             <enum>QLineEdit::Password</enum>
+            </property>
+            <property name="placeholderText">
+             <string>Passwort</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="loginBtn">
+            <property name="text">
+             <string>Login</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="logoutBtn">
+            <property name="text">
+             <string>Logout</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="loginLabel">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="1">
+         <widget class="QTextEdit" name="textEdit"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="macktab">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <attribute name="title">
+        <string>3. Mack the Knife</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="1" rowspan="2">
+         <widget class="QTabWidget" name="cracker_prev">
+          <property name="currentIndex">
+           <number>1</number>
+          </property>
+          <widget class="QWidget" name="general_cracker_tab">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <attribute name="title">
+            <string>General</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_4">
+            <item row="0" column="0">
+             <layout class="QFormLayout" name="formLayout">
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>10</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>Device</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>Tagetfile-Path</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineEdit">
+                <property name="text">
+                 <string>/tmp/hashes</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>Algorithm</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QComboBox" name="comboBox_2">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>MD5</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>RC4</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>SHA256</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QComboBox" name="comboBox">
+                <item>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="specific_cracker_tab">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <attribute name="title">
+            <string>Specific</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_3">
+            <item row="1" column="0">
+             <widget class="QFrame" name="dict_cracker_frame">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QFormLayout" name="formLayout_3">
+               <property name="fieldGrowthPolicy">
+                <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+               </property>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_5">
+                 <property name="text">
+                  <string>Target-Length</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QSpinBox" name="spinBox"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_7">
+                 <property name="text">
+                  <string>Keytable</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="lineEdit_2"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="brute_cracker_frame">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>13</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QFormLayout" name="formLayout_2">
+               <property name="fieldGrowthPolicy">
+                <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+               </property>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_3">
+                 <property name="text">
+                  <string>Dictionary</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="lineEdit_3">
+                 <property name="text">
+                  <string>tests/resources/dict/de.dict</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_8">
+                 <property name="text">
+                  <string>Digits</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_9">
+                 <property name="text">
+                  <string>Hostmemory</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_10">
+                 <property name="text">
+                  <string>Varycase</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QSpinBox" name="spinBox_2">
+                 <property name="minimum">
+                  <number>512</number>
+                 </property>
+                 <property name="maximum">
+                  <number>6144</number>
+                 </property>
+                 <property name="singleStep">
+                  <number>2</number>
+                 </property>
+                 <property name="value">
+                  <number>2048</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QSpinBox" name="spinBox_3"/>
+               </item>
+               <item row="3" column="1">
+                <widget class="QCheckBox" name="checkBox">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QFrame" name="rainbow_cracker_frame">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QFormLayout" name="formLayout_4">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_6">
+                 <property name="text">
+                  <string>Target-Length</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QSpinBox" name="spinBox_4"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_11">
+                 <property name="text">
+                  <string>Chain-Length</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_12">
+                 <property name="text">
+                  <string>Keytable</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_13">
+                 <property name="text">
+                  <string>Rainbowtable</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLineEdit" name="lineEdit_4"/>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="lineEdit_5"/>
+               </item>
+               <item row="1" column="1">
+                <widget class="QSpinBox" name="spinBox_5">
+                 <property name="minimum">
+                  <number>16</number>
+                 </property>
+                 <property name="maximum">
+                  <number>1024</number>
+                 </property>
+                 <property name="singleStep">
+                  <number>2</number>
+                 </property>
+                 <property name="value">
+                  <number>32</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QComboBox" name="cracker_box">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>125</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="insertPolicy">
+           <enum>QComboBox::InsertAlphabetically</enum>
+          </property>
+          <item>
+           <property name="text">
+            <string>Brute force</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Dictionary</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Rainbowtable</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="crackButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Crack</string>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="managetab">
+       <attribute name="title">
+        <string>4. Management</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QLineEdit" name="hashfileEdit">
+              <property name="text">
+               <string>hashes</string>
+              </property>
+              <property name="placeholderText">
+               <string>Output für Hashes</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="saveFileBtn">
+              <property name="text">
+               <string>Hashes speichern</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <widget class="QLineEdit" name="mackEdit">
+              <property name="text">
+               <string>./bin/mack_the_knife -h</string>
+              </property>
+              <property name="placeholderText">
+               <string>Mack Parameter</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="runMackBtn">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>Crack 'em</string>
+              </property>
+              <property name="checkable">
+               <bool>false</bool>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPlainTextEdit" name="consoleTextEdit">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>13</height>
+    </size>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="windowTitle">
+    <string>test</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>588</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="action_About"/>
+   </widget>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="action_Configuration"/>
+   </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="action_Close"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuOptions"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <action name="action_About">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="action_Configuration">
+   <property name="text">
+    <string>&amp;Configuration</string>
+   </property>
+  </action>
+  <action name="action_Close">
+   <property name="text">
+    <string>&amp;Close</string>
+   </property>
+   <property name="toolTip">
+    <string>Close Program</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>passwordEdit</tabstop>
+  <tabstop>passwordEdit2</tabstop>
+  <tabstop>userTable</tabstop>
+  <tabstop>searchEdit</tabstop>
+  <tabstop>userLoginEdit</tabstop>
+  <tabstop>userEdit</tabstop>
+  <tabstop>userPasswordEdit</tabstop>
+  <tabstop>loginBtn</tabstop>
+  <tabstop>logoutBtn</tabstop>
+  <tabstop>textEdit</tabstop>
+  <tabstop>hashfileEdit</tabstop>
+  <tabstop>saveFileBtn</tabstop>
+  <tabstop>mackEdit</tabstop>
+  <tabstop>runMackBtn</tabstop>
+  <tabstop>consoleTextEdit</tabstop>
+ </tabstops>
+ <resources>
+  <include location="ress.qrc"/>
+ </resources>
+ <connections/>
+</ui>
