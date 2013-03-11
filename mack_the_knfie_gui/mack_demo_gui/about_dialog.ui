@@ -67,7 +67,7 @@
     <item alignment="Qt::AlignHCenter">
      <widget class="QPushButton" name="pushButton">
       <property name="text">
-       <string>&amp;Close</string>
+       <string>&amp;Schliessen</string>
       </property>
      </widget>
     </item>

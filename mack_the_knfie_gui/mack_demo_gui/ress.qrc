@@ -1,5 +1,6 @@
- <!DOCTYPE RCC><RCC version="1.0">
- <qresource>
-     <file>cracker.png</file>
- </qresource>
- </RCC>
+<RCC>
+    <qresource prefix="/">
+        <file>cracker.png</file>
+        <file>cracker2.png</file>
+    </qresource>
+</RCC>

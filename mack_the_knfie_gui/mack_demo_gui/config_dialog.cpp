@@ -1,5 +1,7 @@
 #include "config_dialog.h"
 #include "ui_config_dialog.h"
+#include "mainwindow.h"
+#include <iostream>
 
 config_dialog::config_dialog(QWidget *parent) :
     QDialog(parent),
@@ -14,6 +16,11 @@ config_dialog::~config_dialog()
 }
 
 void config_dialog::on_close_button_clicked()
+{
+    this->close();
+}
+
+void config_dialog::on_ok_button_clicked()
 {
     this->close();
 }

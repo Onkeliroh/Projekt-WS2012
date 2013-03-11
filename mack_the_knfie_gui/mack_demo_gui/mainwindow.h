@@ -20,7 +20,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     std::string md5(std::string data);
     ~MainWindow();   
-    
+
 private slots:
     void on_createUserBtn_clicked();
 
@@ -31,10 +31,6 @@ private slots:
     void on_textEdit_textChanged();
 
     void on_logoutBtn_clicked();
-
-    void on_runMackBtn_clicked();
-
-    void on_saveFileBtn_clicked();
 
     void on_searchEdit_returnPressed();
 
@@ -50,13 +46,16 @@ private slots:
 
     void on_tabWidget_currentChanged(int index);
 
+    void on_actionGerman_triggered();
+
 private:
     Ui::MainWindow *ui;
     std::vector<user>_userList;
     int _currentUser;
     bool _loggedin;
 
-    void run_mack();
+    void run_mack(std::string);
+    void upload(std::string);
 };
 
 #endif // MAINWINDOW_H

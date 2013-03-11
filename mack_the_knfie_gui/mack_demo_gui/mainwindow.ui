@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="ress.qrc">
-    <normaloff>:/cracker.png</normaloff>:/cracker.png</iconset>
+    <normaloff>:/cracker2.png</normaloff>:/cracker2.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -40,7 +40,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="create_tab">
        <property name="autoFillBackground">
@@ -55,7 +55,7 @@
           <item>
            <widget class="QLineEdit" name="userEdit">
             <property name="placeholderText">
-             <string>Benutzername</string>
+             <string>1. Benutzername</string>
             </property>
            </widget>
           </item>
@@ -80,7 +80,7 @@
              <enum>QLineEdit::Password</enum>
             </property>
             <property name="placeholderText">
-             <string notr="true" extracomment="Password">Passwort</string>
+             <string notr="true" extracomment="Password">2. Passwort</string>
             </property>
            </widget>
           </item>
@@ -105,7 +105,7 @@
              <enum>QLineEdit::Password</enum>
             </property>
             <property name="placeholderText">
-             <string notr="true" extracomment="Password">Passwort wiederholen</string>
+             <string notr="true" extracomment="Password">3. Passwort wiederholen</string>
             </property>
            </widget>
           </item>
@@ -115,7 +115,7 @@
              <enum>Qt::ClickFocus</enum>
             </property>
             <property name="text">
-             <string>Benutzer Erstellen</string>
+             <string>Benutzer erstellen</string>
             </property>
            </widget>
           </item>
@@ -149,7 +149,7 @@
             </attribute>
             <column>
              <property name="text">
-              <string>User</string>
+              <string>Nutzer</string>
              </property>
             </column>
             <column>
@@ -243,10 +243,10 @@
         <string>3. Mack the Knife</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_5">
-        <item row="0" column="1" rowspan="2">
+        <item row="1" column="1" rowspan="3">
          <widget class="QTabWidget" name="cracker_prev">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="general_cracker_tab">
            <property name="sizePolicy">
@@ -256,7 +256,7 @@
             </sizepolicy>
            </property>
            <attribute name="title">
-            <string>General</string>
+            <string>Allgemeines</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_4">
             <item row="0" column="0">
@@ -276,33 +276,36 @@
               <item row="0" column="0">
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Device</string>
+                 <string>Grafikkarte:</string>
                 </property>
                </widget>
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="label_2">
                 <property name="text">
-                 <string>Tagetfile-Path</string>
+                 <string>Ziel Pfad:</string>
                 </property>
                </widget>
               </item>
               <item row="1" column="1">
-               <widget class="QLineEdit" name="lineEdit">
+               <widget class="QLineEdit" name="targetfile_path">
                 <property name="text">
-                 <string>/tmp/hashes</string>
+                 <string>hashes</string>
                 </property>
                </widget>
               </item>
               <item row="2" column="0">
                <widget class="QLabel" name="label_4">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
-                 <string>Algorithm</string>
+                 <string>Algorithmus: </string>
                 </property>
                </widget>
               </item>
               <item row="2" column="1">
-               <widget class="QComboBox" name="comboBox_2">
+               <widget class="QComboBox" name="algorithm_box">
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
@@ -324,7 +327,7 @@
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QComboBox" name="comboBox">
+               <widget class="QComboBox" name="device_box">
                 <item>
                  <property name="text">
                   <string>0</string>
@@ -349,11 +352,11 @@
             </sizepolicy>
            </property>
            <attribute name="title">
-            <string>Specific</string>
+            <string>Speziell</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_3">
             <item row="1" column="0">
-             <widget class="QFrame" name="dict_cracker_frame">
+             <widget class="QFrame" name="brute_cracker_frame">
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
@@ -367,28 +370,32 @@
                <item row="0" column="0">
                 <widget class="QLabel" name="label_5">
                  <property name="text">
-                  <string>Target-Length</string>
+                  <string>Ziel Länge:</string>
                  </property>
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QSpinBox" name="spinBox"/>
+                <widget class="QSpinBox" name="brute_length_box"/>
                </item>
                <item row="1" column="0">
                 <widget class="QLabel" name="label_7">
                  <property name="text">
-                  <string>Keytable</string>
+                  <string>Zeichentabelle:</string>
                  </property>
                 </widget>
                </item>
                <item row="1" column="1">
-                <widget class="QLineEdit" name="lineEdit_2"/>
+                <widget class="QLineEdit" name="brute_keytable_edit">
+                 <property name="text">
+                  <string>/resources/char_tables/visible_german.txt</string>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>
             </item>
             <item row="2" column="0">
-             <widget class="QFrame" name="brute_cracker_frame">
+             <widget class="QFrame" name="dict_cracker_frame">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                 <horstretch>0</horstretch>
@@ -414,12 +421,12 @@
                <item row="0" column="0">
                 <widget class="QLabel" name="label_3">
                  <property name="text">
-                  <string>Dictionary</string>
+                  <string>Wörterbuch:</string>
                  </property>
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QLineEdit" name="lineEdit_3">
+                <widget class="QLineEdit" name="dict_dict_edit">
                  <property name="text">
                   <string>tests/resources/dict/de.dict</string>
                  </property>
@@ -428,26 +435,26 @@
                <item row="1" column="0">
                 <widget class="QLabel" name="label_8">
                  <property name="text">
-                  <string>Digits</string>
+                  <string>Zahlen</string>
                  </property>
                 </widget>
                </item>
                <item row="2" column="0">
                 <widget class="QLabel" name="label_9">
                  <property name="text">
-                  <string>Hostmemory</string>
+                  <string>RAM:</string>
                  </property>
                 </widget>
                </item>
                <item row="3" column="0">
                 <widget class="QLabel" name="label_10">
                  <property name="text">
-                  <string>Varycase</string>
+                  <string>Groß- &amp; Kleinschreibung:</string>
                  </property>
                 </widget>
                </item>
                <item row="2" column="1">
-                <widget class="QSpinBox" name="spinBox_2">
+                <widget class="QSpinBox" name="dict_hostmem_box">
                  <property name="minimum">
                   <number>512</number>
                  </property>
@@ -463,12 +470,15 @@
                 </widget>
                </item>
                <item row="1" column="1">
-                <widget class="QSpinBox" name="spinBox_3"/>
+                <widget class="QSpinBox" name="dict_digits_box"/>
                </item>
                <item row="3" column="1">
-                <widget class="QCheckBox" name="checkBox">
+                <widget class="QCheckBox" name="dict_varycase_checkbox">
                  <property name="text">
                   <string/>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -487,42 +497,42 @@
                <item row="0" column="0">
                 <widget class="QLabel" name="label_6">
                  <property name="text">
-                  <string>Target-Length</string>
+                  <string>Ziel Länge:</string>
                  </property>
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QSpinBox" name="spinBox_4"/>
+                <widget class="QSpinBox" name="rainbow_target_length_box"/>
                </item>
                <item row="1" column="0">
                 <widget class="QLabel" name="label_11">
                  <property name="text">
-                  <string>Chain-Length</string>
+                  <string>Ketten Länge:</string>
                  </property>
                 </widget>
                </item>
                <item row="2" column="0">
                 <widget class="QLabel" name="label_12">
                  <property name="text">
-                  <string>Keytable</string>
+                  <string>Zeichentabelle:</string>
                  </property>
                 </widget>
                </item>
                <item row="3" column="0">
                 <widget class="QLabel" name="label_13">
                  <property name="text">
-                  <string>Rainbowtable</string>
+                  <string>Rainbowtable:</string>
                  </property>
                 </widget>
                </item>
                <item row="3" column="1">
-                <widget class="QLineEdit" name="lineEdit_4"/>
+                <widget class="QLineEdit" name="rainbow_table_edit"/>
                </item>
                <item row="2" column="1">
-                <widget class="QLineEdit" name="lineEdit_5"/>
+                <widget class="QLineEdit" name="rainbow_keytable_edit"/>
                </item>
                <item row="1" column="1">
-                <widget class="QSpinBox" name="spinBox_5">
+                <widget class="QSpinBox" name="rainbow_chain_length_box">
                  <property name="minimum">
                   <number>16</number>
                  </property>
@@ -544,7 +554,57 @@
           </widget>
          </widget>
         </item>
-        <item row="0" column="0">
+        <item row="4" column="1">
+         <widget class="QPushButton" name="crackButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Crack</string>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_14">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Wähle einen Cracker aus:</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
          <widget class="QComboBox" name="cracker_box">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -584,91 +644,14 @@
           </item>
          </widget>
         </item>
-        <item row="2" column="1">
-         <widget class="QPushButton" name="crackButton">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="text">
-           <string>Crack</string>
-          </property>
-          <property name="autoDefault">
-           <bool>false</bool>
-          </property>
-          <property name="default">
-           <bool>false</bool>
-          </property>
-          <property name="flat">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="managetab">
        <attribute name="title">
-        <string>4. Management</string>
+        <string>4. Ausgabe</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_4">
-            <item>
-             <widget class="QLineEdit" name="hashfileEdit">
-              <property name="text">
-               <string>hashes</string>
-              </property>
-              <property name="placeholderText">
-               <string>Output für Hashes</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="saveFileBtn">
-              <property name="text">
-               <string>Hashes speichern</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_5">
-            <item>
-             <widget class="QLineEdit" name="mackEdit">
-              <property name="text">
-               <string>./bin/mack_the_knife -h</string>
-              </property>
-              <property name="placeholderText">
-               <string>Mack Parameter</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="runMackBtn">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="text">
-               <string>Crack 'em</string>
-              </property>
-              <property name="checkable">
-               <bool>false</bool>
-              </property>
-              <property name="flat">
-               <bool>false</bool>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="0">
          <widget class="QPlainTextEdit" name="consoleTextEdit">
           <property name="readOnly">
            <bool>true</bool>
@@ -728,7 +711,15 @@
     <property name="title">
      <string>Help</string>
     </property>
+    <widget class="QMenu" name="menuLanguage">
+     <property name="title">
+      <string>Language</string>
+     </property>
+     <addaction name="actionGerman"/>
+     <addaction name="actionEnglish"/>
+    </widget>
     <addaction name="action_About"/>
+    <addaction name="menuLanguage"/>
    </widget>
    <widget class="QMenu" name="menuOptions">
     <property name="title">
@@ -767,6 +758,16 @@
     <string>Ctrl+Q</string>
    </property>
   </action>
+  <action name="actionGerman">
+   <property name="text">
+    <string>German</string>
+   </property>
+  </action>
+  <action name="actionEnglish">
+   <property name="text">
+    <string>English</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
@@ -780,10 +781,6 @@
   <tabstop>loginBtn</tabstop>
   <tabstop>logoutBtn</tabstop>
   <tabstop>textEdit</tabstop>
-  <tabstop>hashfileEdit</tabstop>
-  <tabstop>saveFileBtn</tabstop>
-  <tabstop>mackEdit</tabstop>
-  <tabstop>runMackBtn</tabstop>
   <tabstop>consoleTextEdit</tabstop>
  </tabstops>
  <resources>

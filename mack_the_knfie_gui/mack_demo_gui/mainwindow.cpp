@@ -172,80 +172,6 @@ void MainWindow::on_logoutBtn_clicked()
     ui->textEdit->setText("");
 }
 
-void MainWindow::on_runMackBtn_clicked()
-{
-    FILE *fp;
-    char line[130];
-    char* c;
-    std::string mackstring = ui->mackEdit->text().toStdString();
-    mackstring.append(" -t ");
-    mackstring.append(hashes_location);
-    std::string cmd("./run.sh ");
-    cmd.append(mackstring);
-
-    std::cout << cmd << "\n";
-
-    fp = popen(cmd.c_str(), "r");
-
-    while ( fgets( line, sizeof line, fp))
-    {
-        c = strchr(line,'\n');
-        (*c) = 0;
-        ui->consoleTextEdit->appendPlainText(QString(line));
-        fflush(fp);
-        ui->consoleTextEdit->repaint();
-    }
-    pclose(fp);
-
-}
-
-void MainWindow::on_saveFileBtn_clicked()
-{
-    //write hashes to file
-    std::fstream hashfile;
-
-    std::string hashfilename = ui->hashfileEdit->text().toStdString();
-
-    hashfile.open(hashfilename.c_str(), std::fstream::trunc | std::fstream::out);
-
-    if (!_userList.empty()){
-        for (std::vector<user>::iterator it=_userList.begin() ; it != _userList.end(); it++ ){
-            hashfile << (*it)._password << "\n";
-        }
-
-        hashfile.close();
-
-        //upload hashes to cuda server
-        FILE *fp;
-        char line[130];
-        char* c;
-
-        //std::string cmd = get_default_upload_script();
-        std::string cmd("./upload.sh "); //editieren
-        cmd.append(hashfilename);
-
-        std::cout<<cmd;
-        fp = popen(cmd.c_str(), "r");
-
-        while ( fgets( line, sizeof line, fp))
-        {
-            c = strchr(line,'\n');
-            (*c) = 0;
-            ui->consoleTextEdit->appendPlainText(QString(line));
-        }
-        pclose(fp);
-
-        ui->runMackBtn->setEnabled(true);
-    }
-    else {
-        QMessageBox messageBox;
-        messageBox.critical(0,"Error","Es liegen keine Nutzerkonten vor.\nBitte legen sie ein Nutzerkonto an.");
-        messageBox.setFixedSize(500,200);
-    }
-
-}
-
-
 void MainWindow::on_searchEdit_returnPressed()
 {
 
@@ -307,17 +233,63 @@ void MainWindow::on_action_Close_triggered()
 void MainWindow::on_crackButton_clicked()
 {
     ui->tabWidget->setCurrentIndex(3);
-    run_mack();
+    upload(ui->targetfile_path->text().toStdString());
+
+    std::stringstream run_cmd;
+    if (ui->cracker_box->currentIndex() == 0){ // bruteforce
+        run_cmd <<
+                " ./bin/mack_the_knife " <<
+                " -C Brute_Cracker " <<
+                " --cracker.device " << ui->device_box->currentText().toStdString() <<
+                " --cracker.target-file " << ui->targetfile_path->text().toStdString() <<
+                " --cracker.algorithm " << " MD5_Algorithm " <<
+                " --cracker.length " << ui->brute_length_box->value() <<
+                " --cracker.keytable " << ui->brute_keytable_edit->text().toStdString() ;
+    }
+    else if (ui->cracker_box->currentIndex() == 1){ // dictionary
+        run_cmd <<
+                " ./bin/mack_the_knife " <<
+                " -C Dictionary_Cracker " <<
+                " --cracker.device " << ui->device_box->currentText().toStdString() <<
+                " --cracker.target-file " << ui->targetfile_path->text().toStdString() <<
+                " --cracker.algorithm " << " MD5_Algorithm " <<
+                " --cracker.dictionary " << ui->dict_dict_edit->text().toStdString() <<
+                " --cracker.digits " << ui->dict_digits_box->value() <<
+                " --cracker.hostmem " << ui->dict_hostmem_box->value() <<
+                " --cracker.varycase ";
+        if (ui->dict_varycase_checkbox->isTristate())
+            run_cmd << "true";
+        else
+            run_cmd << "false";
+    }
+    else if (ui->cracker_box->currentIndex() == 2){ // rainbowtable
+        run_cmd <<
+                " ./bin/mack_the_knife " <<
+                " -C Rainbow_Cuda_Cracker " <<
+                " --cracker.device " << ui->device_box->currentText().toStdString() <<
+                " --cracker.target-file " << ui->targetfile_path->text().toStdString() <<
+                " --cracker.algorithm " << " MD5_Algorithm " <<
+                " --cracker.length " << ui->rainbow_target_length_box->value() <<
+                " --cracker.keytable " << ui->rainbow_keytable_edit->text().toStdString() <<
+                " --cracker.chainlength " << ui->rainbow_chain_length_box->value() <<
+                " --cracker.rainbowtable " << ui->rainbow_table_edit->text().toStdString();
+    }
+
+    run_mack(run_cmd.str());
 }
 
-void MainWindow::run_mack()
+void MainWindow::run_mack(std::string mackstring)
 {
     FILE *fp;
     char line[130];
     char* c;
-    std::string mackstring = ui->mackEdit->text().toStdString();
-    mackstring.append(" -t ");
-    mackstring.append(hashes_location);
+
+    ui->consoleTextEdit->clear();
+    ui->consoleTextEdit->appendPlainText("Fuehre Mack the Knife mit folgendem Kommando aus:");
+    ui->consoleTextEdit->appendPlainText(QString::fromStdString(mackstring));
+    ui->consoleTextEdit->appendPlainText("-------------------------------------------------");
+    ui->consoleTextEdit->repaint();
+
     std::string cmd("./run.sh ");
     cmd.append(mackstring);
 
@@ -335,6 +307,49 @@ void MainWindow::run_mack()
     }
     pclose(fp);
 
+}
+
+void MainWindow::upload(std::string hashfilename)
+{
+    //write hashes to file
+    std::fstream hashfile;
+
+    //std::string hashfilename = ui->hashfileEdit->text().toStdString();
+
+    hashfile.open(hashfilename.c_str(), std::fstream::trunc | std::fstream::out);
+
+    if (!_userList.empty()){
+        for (std::vector<user>::iterator it=_userList.begin() ; it != _userList.end(); it++ ){
+            hashfile << (*it)._password << "\n";
+        }
+
+        hashfile.close();
+
+        //upload hashes to cuda server
+        FILE *fp;
+        char line[130];
+        char* c;
+
+        //std::string cmd = get_default_upload_script();
+        std::string cmd("./upload.sh "); //editieren
+        cmd.append(hashfilename);
+
+        std::cout<<cmd;
+        fp = popen(cmd.c_str(), "r");
+
+        while ( fgets( line, sizeof line, fp))
+        {
+            c = strchr(line,'\n');
+            (*c) = 0;
+            ui->consoleTextEdit->appendPlainText(QString(line));
+        }
+        pclose(fp);
+    }
+    else {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","Es liegen keine Nutzerkonten vor.\nBitte legen sie ein Nutzerkonto an.");
+        messageBox.setFixedSize(500,200);
+    }
 }
 
 void MainWindow::on_cracker_box_currentIndexChanged(int index)
@@ -362,4 +377,8 @@ void MainWindow::on_cracker_box_currentIndexChanged(int index)
 void MainWindow::on_tabWidget_currentChanged(int index)
 {
     on_cracker_box_currentIndexChanged(ui->cracker_box->currentIndex());
+}
+
+void MainWindow::on_actionGerman_triggered()
+{
 }

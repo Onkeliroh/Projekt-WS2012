@@ -20,6 +20,8 @@ private slots:
 
     void on_close_button_clicked();
 
+    void on_ok_button_clicked();
+
 private:
     Ui::config_dialog *ui;
 };
