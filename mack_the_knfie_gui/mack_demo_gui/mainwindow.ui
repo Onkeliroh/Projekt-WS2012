@@ -40,7 +40,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="create_tab">
        <property name="autoFillBackground">
@@ -709,11 +709,11 @@
    </property>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
-     <string>Help</string>
+     <string>Hilfe</string>
     </property>
     <widget class="QMenu" name="menuLanguage">
      <property name="title">
-      <string>Language</string>
+      <string>Sprache</string>
      </property>
      <addaction name="actionGerman"/>
      <addaction name="actionEnglish"/>
@@ -723,13 +723,13 @@
    </widget>
    <widget class="QMenu" name="menuOptions">
     <property name="title">
-     <string>Options</string>
+     <string>Optionen</string>
     </property>
     <addaction name="action_Configuration"/>
    </widget>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>Datei</string>
     </property>
     <addaction name="action_Close"/>
    </widget>
@@ -739,17 +739,17 @@
   </widget>
   <action name="action_About">
    <property name="text">
-    <string>&amp;About</string>
+    <string>&amp;Über</string>
    </property>
   </action>
   <action name="action_Configuration">
    <property name="text">
-    <string>&amp;Configuration</string>
+    <string>&amp;Konfiguration</string>
    </property>
   </action>
   <action name="action_Close">
    <property name="text">
-    <string>&amp;Close</string>
+    <string>&amp;Schliessen</string>
    </property>
    <property name="toolTip">
     <string>Close Program</string>
@@ -760,12 +760,12 @@
   </action>
   <action name="actionGerman">
    <property name="text">
-    <string>German</string>
+    <string>Deutsch</string>
    </property>
   </action>
   <action name="actionEnglish">
    <property name="text">
-    <string>English</string>
+    <string>Englisch</string>
    </property>
   </action>
  </widget>
