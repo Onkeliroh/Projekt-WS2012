@@ -260,9 +260,9 @@ void MainWindow::on_crackButton_clicked()
                     " --cracker.hostmem " << ui->dict_hostmem_box->value() <<
                     " --cracker.varycase ";
             if (ui->dict_varycase_checkbox->isTristate())
-                run_cmd << "true";
-            else
                 run_cmd << "false";
+            else
+                run_cmd << "true";
         }
         else if (ui->cracker_box->currentIndex() == 2){ // rainbowtable
             run_cmd <<
