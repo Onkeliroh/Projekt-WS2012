@@ -1,5 +1,5 @@
 #! /bin/bash
 echo  "Uploading Hashes to cuda server"
-scp $1 dpollack@141.54.159.224:/home/dpollack/mtk/
+scp $1 dpollack@141.54.159.224:/home/dpollack/mtk_run/mack/
 echo -n "Uploaded hashes from "
 echo $1

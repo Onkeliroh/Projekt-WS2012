@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Mon Mar 11 14:58:16 2013
+** Created: Fri Mar 15 16:34:00 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -130,7 +130,7 @@ public:
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(588, 483);
         QIcon icon;
-        icon.addFile(QString::fromUtf8(":/cracker2.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8(":/test02.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
         action_About = new QAction(MainWindow);
         action_About->setObjectName(QString::fromUtf8("action_About"));
@@ -225,6 +225,9 @@ public:
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(userTable->sizePolicy().hasHeightForWidth());
         userTable->setSizePolicy(sizePolicy1);
+        QFont font;
+        font.setFamily(QString::fromUtf8("Monospace"));
+        userTable->setFont(font);
         userTable->setAutoFillBackground(true);
         userTable->horizontalHeader()->setStretchLastSection(true);
 
@@ -272,11 +275,11 @@ public:
 
         loginLabel = new QLabel(login_tab);
         loginLabel->setObjectName(QString::fromUtf8("loginLabel"));
-        QFont font;
-        font.setPointSize(14);
-        font.setBold(true);
-        font.setWeight(75);
-        loginLabel->setFont(font);
+        QFont font1;
+        font1.setPointSize(14);
+        font1.setBold(true);
+        font1.setWeight(75);
+        loginLabel->setFont(font1);
 
         verticalLayout_3->addWidget(loginLabel);
 
@@ -610,7 +613,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
         cracker_prev->setCurrentIndex(0);
 
 
@@ -670,12 +673,12 @@ public:
          << QApplication::translate("MainWindow", "0", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("MainWindow", "1", 0, QApplication::UnicodeUTF8)
         );
-        cracker_prev->setTabText(cracker_prev->indexOf(general_cracker_tab), QApplication::translate("MainWindow", "Allgemeines", 0, QApplication::UnicodeUTF8));
+        cracker_prev->setTabText(cracker_prev->indexOf(general_cracker_tab), QApplication::translate("MainWindow", "Allgemein", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("MainWindow", "Ziel L\303\244nge:", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("MainWindow", "Zeichentabelle:", 0, QApplication::UnicodeUTF8));
-        brute_keytable_edit->setText(QApplication::translate("MainWindow", "/resources/char_tables/visible_german.txt", 0, QApplication::UnicodeUTF8));
+        brute_keytable_edit->setText(QApplication::translate("MainWindow", "resources/char_tables/visible_german.txt", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("MainWindow", "W\303\266rterbuch:", 0, QApplication::UnicodeUTF8));
-        dict_dict_edit->setText(QApplication::translate("MainWindow", "tests/resources/dict/de.dict", 0, QApplication::UnicodeUTF8));
+        dict_dict_edit->setText(QApplication::translate("MainWindow", "tests/resources/mack/crackers/dict/de.dict", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("MainWindow", "Zahlen", 0, QApplication::UnicodeUTF8));
         label_9->setText(QApplication::translate("MainWindow", "RAM:", 0, QApplication::UnicodeUTF8));
         label_10->setText(QApplication::translate("MainWindow", "Gro\303\237- & Kleinschreibung:", 0, QApplication::UnicodeUTF8));

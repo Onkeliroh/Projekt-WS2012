@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'about_dialog.ui'
 **
-** Created: Mon Mar 11 14:43:35 2013
+** Created: Fri Mar 15 16:33:26 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -15,11 +15,11 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QDialog>
+#include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QPushButton>
 #include <QtGui/QVBoxLayout>
-#include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -27,7 +27,7 @@ class Ui_about_dialog
 {
 public:
     QAction *actionClose;
-    QWidget *verticalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout;
     QLabel *logo_label;
     QLabel *info_label;
@@ -41,30 +41,45 @@ public:
         about_dialog->resize(270, 390);
         actionClose = new QAction(about_dialog);
         actionClose->setObjectName(QString::fromUtf8("actionClose"));
-        verticalLayoutWidget = new QWidget(about_dialog);
-        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(-1, -1, 271, 391));
-        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        horizontalLayout = new QHBoxLayout(about_dialog);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(20, 0, 20, 10);
-        logo_label = new QLabel(verticalLayoutWidget);
+        verticalLayout->setContentsMargins(10, 0, 10, 10);
+        logo_label = new QLabel(about_dialog);
         logo_label->setObjectName(QString::fromUtf8("logo_label"));
-        logo_label->setMaximumSize(QSize(16777215, 100));
-        logo_label->setPixmap(QPixmap(QString::fromUtf8(":/cracker.png")));
+        QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(logo_label->sizePolicy().hasHeightForWidth());
+        logo_label->setSizePolicy(sizePolicy);
+        logo_label->setMinimumSize(QSize(0, 0));
+        logo_label->setMaximumSize(QSize(100, 100));
+        logo_label->setTextFormat(Qt::AutoText);
+        logo_label->setPixmap(QPixmap(QString::fromUtf8(":/test02.png")));
+        logo_label->setScaledContents(true);
         logo_label->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(logo_label);
 
-        info_label = new QLabel(verticalLayoutWidget);
+        info_label = new QLabel(about_dialog);
         info_label->setObjectName(QString::fromUtf8("info_label"));
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(info_label->sizePolicy().hasHeightForWidth());
+        info_label->setSizePolicy(sizePolicy1);
         info_label->setWordWrap(true);
 
-        verticalLayout->addWidget(info_label, 0, Qt::AlignHCenter);
+        verticalLayout->addWidget(info_label);
 
-        pushButton = new QPushButton(verticalLayoutWidget);
+        pushButton = new QPushButton(about_dialog);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
         verticalLayout->addWidget(pushButton, 0, Qt::AlignHCenter);
+
+
+        horizontalLayout->addLayout(verticalLayout);
 
 
         retranslateUi(about_dialog);

@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="ress.qrc">
-    <normaloff>:/cracker2.png</normaloff>:/cracker2.png</iconset>
+    <normaloff>:/test02.png</normaloff>:/test02.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -40,7 +40,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="create_tab">
        <property name="autoFillBackground">
@@ -71,7 +71,7 @@
              <bool>false</bool>
             </property>
             <property name="inputMethodHints">
-             <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+             <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText</set>
             </property>
             <property name="maxLength">
              <number>6</number>
@@ -96,7 +96,7 @@
              <bool>false</bool>
             </property>
             <property name="inputMethodHints">
-             <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+             <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText</set>
             </property>
             <property name="maxLength">
              <number>6</number>
